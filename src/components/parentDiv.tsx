@@ -4,7 +4,7 @@ import PriceFilter from "./PriceFilter";
 import MaxPeople from "./MaxPeople";
 import Overnight from "./Overnight";
 import RoomCount from "./RoomCount";
-// import Bathrooms from "./Bathrooms";
+import Bathrooms from "./Bathrooms";
 // import PoolOptions from "./PoolOptions";
 // import Advantages from "./Advantages";
 
@@ -15,7 +15,7 @@ const ParentDiv = () => (
     <MaxPeople />
     <Overnight />
     <RoomCount />
-    {/* <Bathrooms />/ */}
+    <Bathrooms />/
     {/* <PoolOptions /> */}
     {/* <Advantages />/ */}
   </div>
