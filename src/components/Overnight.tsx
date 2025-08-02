@@ -36,7 +36,7 @@ const Overnight: React.FC = () => {
     <div>
               <p className="text-base font-medium absolute top-[660px] left-[120px]">Overnight availability</p>
 
-    <div className="absolute top-[700px] left-[120px] border border-spacing-2 grid grid-cols-3 gap-3">
+    <div className="absolute top-[700px] left-[120px] grid grid-cols-3 gap-2">
       {overnightOptions.map((option, index) => (
         <div key={index} className={option.className}>
           {option.label}
