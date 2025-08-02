@@ -2,7 +2,7 @@ import React from "react";
 import RegionFilter from "./RegionFilter";
 import PriceFilter from "./PriceFilter";
 import MaxPeople from "./MaxPeople";
-// import Overnight from "./Overnight";
+import Overnight from "./Overnight";
 // import RoomCount from "./RoomCount";
 // import Bathrooms from "./Bathrooms";
 // import PoolOptions from "./PoolOptions";
@@ -13,7 +13,7 @@ const ParentDiv = () => (
     <RegionFilter/>
     <PriceFilter />
     <MaxPeople />
-    {/* <Overnight /> */}
+    <Overnight />
     {/* <RoomCount /> */}
     {/* <Bathrooms />/ */}
     {/* <PoolOptions /> */}
