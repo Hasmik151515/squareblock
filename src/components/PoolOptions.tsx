@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-// Տիպավորում pool option-ների համար
 interface PoolOption {
     label: string;
     className: string;

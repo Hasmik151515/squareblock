@@ -1,6 +1,6 @@
 import React from "react";
 import ParentDiv from "../components/parentDiv";
-// import MapCal from "../components/mapCal";
+import MapCal from "../components/mapCal";
 // import HouseTypes from "../components/HouseTypes";
 // import BestOffer from "../components/BestOffer"; 
 // import CommonOffers from "../components/CommonOffers";
@@ -21,7 +21,7 @@ export default function Home({ onLogout }: HomeProps) {
       <button onClick={onLogout}>Logout</button>
       
            <ParentDiv />
-      {/* <MapCal /> */}
+      <MapCal />
       {/* <HouseTypes /> */}
       {/* <BestOffer />  */}
       {/* <CommonOffers /> */}
