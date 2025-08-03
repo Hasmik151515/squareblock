@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Header from "./components/header";
 import './index.css';
+import './App.css';
 
 
 export default function App(): ReactElement {

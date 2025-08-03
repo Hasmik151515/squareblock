@@ -1,0 +1,321 @@
+{
+  "advantages": [
+    { "name": "Sauna" },
+    { "name": "Jacussi" },
+    { "name": "Billiard" },
+    { "name": "Ping-pong" },
+    { "name": "Open pavilion" },
+    { "name": "Indoor pavilion" },
+    { "name": "Barbecue" },
+    { "name": "Tandoor" },
+    { "name": "Summer kitchen" },
+    { "name": "Player" },
+    { "name": "Swing" },
+    { "name": "Cinema" },
+    { "name": "Wifi" },
+    { "name": "Smart TV" },
+    { "name": "Trampoline" },
+    { "name": "Bar" }
+  ],
+  "bathrooms": [
+    {
+      "label": "All",
+      "className": "top-[20px] relative h-[45px] w-[65px] bg-black rounded-[50px] text-white flex justify-center items-center text-[13px] font-medium"
+    },
+    {
+      "label": "1",
+      "className": "relative left-[70px] top-[-24px] h-[45px] w-[55px] border border-[#E5E7EB] rounded-[50px] text-[#585e6d] flex justify-center items-center text-[13px] font-medium"
+    },
+    {
+      "label": "2",
+      "className": "relative left-[130px] top-[-68px] h-[45px] w-[55px] border border-[#E5E7EB] rounded-[50px] text-[#585e6d] flex justify-center items-center text-[13px] font-medium"
+    },
+    {
+      "label": "3+",
+      "className": "relative left-[0px] top-[-60px] h-[45px] w-[55px] border border-[#E5E7EB] rounded-[50px] text-[#585e6d] flex justify-center items-center text-[13px] font-medium"
+    }
+  ],
+  "headerMenu": [
+    { "label": "Home", "className": "home" },
+    { "label": "Sales", "className": "sal" },
+    { "label": "Services", "className": "ser" },
+    { "label": "About us", "className": "bot" }
+  ],
+  "regions": [
+    { "name": "Dilijan", "count": 88 },
+    { "name": "Tsaghkadzor", "count": 63 },
+    { "name": "Dzoraghbyur", "count": 17 },
+    { "name": "Yerevan", "count": 15 },
+    { "name": "Ashtarak", "count": 15 },
+    { "name": "Garni", "count": 15 },
+    { "name": "Jrvezh", "count": 10 },
+    { "name": "Arzni", "count": 9 },
+    { "name": "Nor Gadzhan", "count": 9 },
+    { "name": "Abovyan", "count": 7 },
+    { "name": "Hrazdan", "count": 7 },
+    { "name": "Zovuni", "count": 6 },
+    { "name": "Ijevan", "count": 5 },
+    { "name": "Jermuk", "count": 5 },
+    { "name": "Argel", "count": 4 },
+    { "name": "Bjni", "count": 4 }
+  ],
+  "overnightOptions": [
+    {
+      "label": "All",
+      "className": "relative top-[20px] h-[45px] w-[75px] bg-black rounded-[50px] text-white flex justify-center items-center text-[13px] font-medium"
+    },
+    {
+      "label": "Yes",
+      "className": "border border-gray-200 relative left-[60px] top-[-23px] h-[45px] w-[75px] rounded-[50px] flex justify-center items-center text-[13px] font-medium text-[#585e6d]"
+    },
+    {
+      "label": "No",
+      "className": "border border-gray-200 relative left-[140px] top-[-68px] h-[45px] w-[75px] rounded-[50px] flex justify-center items-center text-[13px] font-medium text-[#585e6d]"
+    }
+  ],
+  "poolOptions": [
+    {
+      "label": "All",
+      "className": "top-[20px] relative h-[45px] w-[65px] bg-black rounded-[50px] text-white flex justify-center items-center text-[13px] font-medium"
+    },
+    {
+      "label": "Open",
+      "className": "top-[-24px] left-[70px] relative h-[45px] w-[85px] border border-[#E5E7EB] rounded-[50px] text-[#585e6d] flex justify-center items-center text-[13px] font-medium"
+    },
+    {
+      "label": "Closed",
+      "className": "top-[-15px] relative h-[45px] w-[90px] border border-[#E5E7EB] rounded-[50px] text-[#585e6d] flex justify-center items-center text-[13px] font-medium"
+    },
+    {
+      "label": "Heated",
+      "className": "top-[-60px] left-[100px] relative h-[45px] w-[85px] border border-[#E5E7EB] rounded-[50px] text-[#585e6d] flex justify-center items-center text-[13px] font-medium"
+    },
+    {
+      "label": "Without pool",
+      "className": "top-[-50px] left-[0px] relative h-[45px] w-[100px] border border-[#E5E7EB] rounded-[50px] text-[#585e6d] flex justify-center items-center text-[13px] font-medium"
+    }
+  ],
+  "roomCounts": [
+    {
+      "label": "All",
+      "className": "top-[20px] relative h-[45px] w-[65px] bg-black rounded-[50px] text-white flex justify-center items-center text-[13px] font-medium"
+    },
+    {
+      "label": "1",
+      "className": "relative top-[-23px] left-[70px] h-[45px] w-[60px] border border-[#E5E7EB] rounded-[50px] text-[#585e6d] flex justify-center items-center text-[13px] font-medium"
+    },
+    {
+      "label": "2",
+      "className": "relative top-[-67px] left-[140px] h-[45px] w-[60px] border border-[#E5E7EB] rounded-[50px] text-[#585e6d] flex justify-center items-center text-[13px] font-medium"
+    },
+    {
+      "label": "3",
+      "className": "relative top-[-60px] left-[0px] h-[45px] w-[60px] border border-[#E5E7EB] rounded-[50px] text-[#585e6d] flex justify-center items-center text-[13px] font-medium"
+    },
+    {
+      "label": "4",
+      "className": "relative top-[-105px] left-[70px] h-[45px] w-[60px] border border-[#E5E7EB] rounded-[50px] text-[#585e6d] flex justify-center items-center text-[13px] font-medium"
+    },
+    {
+      "label": "5",
+      "className": "relative top-[-150px] left-[140px] h-[45px] w-[60px] border border-[#E5E7EB] rounded-[50px] text-[#585e6d] flex justify-center items-center text-[13px] font-medium"
+    },
+    {
+      "label": "6 and more",
+      "className": "relative top-[-140px] left-[0px] h-[45px] w-[100px] border border-[#E5E7EB] rounded-[50px] text-[#585e6d] flex justify-center items-center text-[13px] font-medium"
+    }
+  ],
+    "houseTypes": [
+    { "image": "../assets/tun2.png", "label": "Houses", "className": "nk" },
+    { "image": "../assets/frame2.png", "label": "Frame houses", "className": "h-[42px] w-[60px]" },
+    { "image": "../assets/tiny.png", "label": "Tiny homes", "className": "nk2" },
+    { "image": "../assets/pool.png", "label": "Closed pool", "className": "nk3" },
+    { "image": "../assets/seclution.png", "label": "Seclusion", "className": "nk4" },
+    { "image": "../assets/amazing.png", "label": "Amazing view", "className": "nk5" },
+    { "image": "../assets/trending.png", "label": "Trending", "className": "nk6" },
+    { "image": "../assets/lake.png", "label": "Lakefront", "className": "nk7" },
+    { "image": "../assets/river.png", "label": "RiverSide", "className": "nk8" },
+    { "image": "../assets/pavilion.png", "label": "Pavilion", "className": "nk8" },
+    { "image": "../assets/hotels.png", "label": "Hotels", "className": "nk8" },
+    { "image": "../assets/designs.png", "label": "Design", "className": "nk8" },
+    { "image": "../assets/new.png", "label": "New", "className": "nk8" },
+    { "image": "../assets/apartments.png", "label": "Apartments", "className": "nk8" }
+  ],
+  "icons": {
+    "location": "../assets/location.png",
+    "users": "../assets/users.png",
+    "pitak": "../assets/pitak.png",
+    "gazaraguyn": "../assets/gazaraguyn.png"
+  },
+  "bestOffers": [
+    {
+      "id": 1,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2F1748801315957--0.14992298341305066image_optimized.webp&w=1920&q=75",
+      "location": "Bjni",
+      "people": 25,
+      "hasGazar": true,
+      "price": "90,000 Դ"
+    },
+    {
+      "id": 2,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2Fcompressed_images%2Fcompressed_1751474820655--0.43484853777832466image.webp&w=1920&q=75",
+      "location": "Ohanavan",
+      "people": 40,
+      "hasGazar": false,
+      "price": "80,000 Դ"
+    },
+    {
+      "id": 3,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2Fcompressed_images%2Fcompressed_1749129096808--0.7086323824932048image.webp&w=1920&q=75",
+      "location": "Ohanavan",
+      "people": 30,
+      "hasGazar": true,
+      "price": "100,000 Դ"
+    },
+    {
+      "id": 4,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2Fcompressed_images%2Fcompressed_1743333703923--0.855995768813071image.webp&w=1920&q=75",
+      "location": "Yerevan",
+      "people": 12,
+      "hasGazar": false,
+      "price": "140,000 Դ"
+    },
+    {
+      "id": 5,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2F1705829500856--0.9156560389221753image.webp&w=1920&q=75",
+      "location": "Tsaghkadzor",
+      "people": 20,
+      "hasGazar": false,
+      "price": "150,000 Դ"
+    },
+    {
+      "id": 6,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2F1713189833878--0.4143944577437526image.webp&w=1920&q=75",
+      "location": "Tsaghkadzor",
+      "people": 15,
+      "hasGazar": false,
+      "price": "80,000 Դ"
+    },
+    {
+      "id": 7,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2Fcompressed_images%2Fcompressed_1751474240693--0.9463847403244294image.webp&w=1920&q=75",
+      "location": "Hrazdan",
+      "people": 24,
+      "hasGazar": false,
+      "price": "150,000 Դ"
+    },
+    {
+      "id": 8,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2Fcompressed_images%2Fcompressed_1746091140887--0.03968590752905832image.webp&w=1920&q=75",
+      "location": "Tsaghkadzor",
+      "people": 20,
+      "hasGazar": true,
+      "price": "90,000 Դ"
+    },
+    {
+      "id": 9,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2F1718624004085--0.12840274800795215image.webp&w=1920&q=75",
+      "location": "Nor Gadzan",
+      "people": 25,
+      "hasGazar": true,
+      "price": "160,000 Դ"
+    }
+  ],
+  "commonOffers": [
+    {
+      "id": 1,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2Fcompressed_images%2Fcompressed_1750061988652--0.7392460268708794image.webp&w=1920&q=75",
+      "location": "Tsaghkadzor",
+      "people": 8,
+      "hasGazar": false,
+      "price": "55,000 Դ"
+    },
+    {
+      "id": 2,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2F1745851004341--0.9556085228846611image_optimized.webp&w=1920&q=75",
+      "location": "Aghartsin",
+      "people": 30,
+      "hasGazar": false,
+      "price": "60,000 Դ"
+    },
+    {
+      "id": 3,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2Fcompressed_images%2Fcompressed_1746171377172--0.1984501350609782image.webp&w=1920&q=75",
+      "location": "Dzoraghbyur",
+      "people": 30,
+      "hasGazar": true,
+      "price": "80,000 Դ"
+    },
+    {
+      "id": 4,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2Fcompressed_images%2Fcompressed_1746171161986--0.27172721268076216image.webp&w=1920&q=75",
+      "location": "Dzoraghbyur",
+      "people": 20,
+      "hasGazar": false,
+      "price": "60,000 Դ"
+    },
+    {
+      "id": 5,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2Fcompressed_images%2Fcompressed_1751016616494--0.6916111956605249image.webp&w=1920&q=75",
+      "location": "Arzakan",
+      "people": 10,
+      "hasGazar": false,
+      "price": "70,000 Դ"
+    },
+    {
+      "id": 6,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2F1745841646587--0.11524670507536361image_optimized.webp&w=1920&q=75",
+      "location": "Dilijan",
+      "people": 50,
+      "hasGazar": false,
+      "price": "50,000 Դ"
+    },
+    {
+      "id": 7,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2Fcompressed_images%2Fcompressed_1745829084737--0.12708329351840164image.webp&w=1920&q=75",
+      "location": "Mrgashen",
+      "people": 25,
+      "hasGazar": false,
+      "price": "35,000 Դ"
+    },
+    {
+      "id": 8,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2Fcompressed_images%2Fcompressed_1745663138890--0.5443015474707349image.webp&w=1920&q=75",
+      "location": "Dilijan",
+      "people": 6,
+      "hasGazar": false,
+      "price": "40,000 Դ"
+    },
+    {
+      "id": 9,
+      "image": "https://amaranoc.am/_next/image?url=https%3A%2F%2Fapi.amaranoc.am%2Fcompressed_images%2Fcompressed_1745661238958--0.4288049568652368image.webp&w=1920&q=75",
+      "location": "Tsaghkadzor",
+      "people": 7,
+      "hasGazar": false,
+      "price": "75,000 Դ"
+    }
+  ],
+    "pages": [
+    {
+      "label": "1",
+      "className": "flex top-[40px] left-[350px] justify-center items-center relative h-[40px] w-[40px] bg-[#FD993A] rounded-full text-white text-[18px]"
+    },
+    {
+      "label": "2",
+      "className": "flex left-[400px] justify-center items-center relative h-[40px] w-[40px] rounded-full text-black text-[18px] font-medium"
+    },
+    {
+      "label": "3",
+      "className": "flex top-[-40px] left-[455px] justify-center items-center relative h-[40px] w-[40px] rounded-full text-black text-[18px] font-medium"
+    },
+    {
+      "label": "...",
+      "className": "flex top-[-80px] left-[510px] justify-center items-center relative h-[40px] w-[40px] rounded-full text-black text-[18px] font-medium"
+    },
+    {
+      "label": "20",
+      "className": "flex top-[-120px] left-[570px] justify-center items-center relative h-[40px] w-[40px] rounded-full text-black text-[17px] font-medium"
+    }
+  ]
+}
+
