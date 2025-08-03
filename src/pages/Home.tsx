@@ -1,9 +1,9 @@
 import React from "react";
 import ParentDiv from "../components/parentDiv";
 import MapCal from "../components/mapCal";
-// import HouseTypes from "../components/HouseTypes";
-// import BestOffer from "../components/BestOffer"; 
-// import CommonOffers from "../components/CommonOffers";
+import HouseTypes from "../components/HouseTypes";
+import BestOffer from "../components/BestOffer"; 
+import CommonOffers from "../components/CommonOffers";
 // import Pagination from "../components/Pagination";
 // import Footer from "../components/footer";
 // import LastPart from "../components/lastPart";
@@ -22,9 +22,9 @@ export default function Home({ onLogout }: HomeProps) {
       
            <ParentDiv />
       <MapCal />
-      {/* <HouseTypes /> */}
-      {/* <BestOffer />  */}
-      {/* <CommonOffers /> */}
+      <HouseTypes />
+      <BestOffer /> 
+      <CommonOffers />
       {/* <Pagination /> */}
       {/* <Footer /> */}
       {/* <LastPart /> */}

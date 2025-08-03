@@ -13,7 +13,13 @@ import designs from "../assets/designs.png";
 import newe from "../assets/new.png";
 import apartments from "../assets/apartments.png";
 
-export const houseTypes = [
+export interface HouseType {
+  image: string;       
+  label: string;
+  className?: string;
+}
+
+export const houseTypes: HouseType[] = [
   { image: tun2, label: "Houses", className: "nk" },
   { image: frame, label: "Frame houses", className: "h-[42px] w-[60px]" },
   { image: tiny, label: "Tiny homes", className: "nk2" },
