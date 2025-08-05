@@ -18,10 +18,9 @@ interface HomeProps {
 export default function Home({ onLogout  }: HomeProps) {
   return (
     <div>
-      {/* <h1>Welcome Home, {userEmail}!</h1> */}
       <button onClick={onLogout} className="relative top-[2850px] ">Logout</button>
       
-           <ParentDiv />
+      <ParentDiv />
       <MapCal />
       <HouseTypes />
       <BestOffer /> 

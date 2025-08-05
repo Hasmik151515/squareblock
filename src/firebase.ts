@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, onValue } from "firebase/database"; 
-import { getAuth } from "firebase/auth"; 
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDgUTbqdazPfP-RY2nNHqC1w4CQ6b9OuHE",
@@ -14,6 +15,7 @@ storageBucket: "amaranoc4.appspot.com",
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
 const auth = getAuth(app);
-export { db, ref, onValue, auth }
+const db = getFirestore(app);
+
+export { auth, db };
