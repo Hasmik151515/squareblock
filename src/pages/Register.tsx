@@ -1,31 +1,38 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase"; // ✅ փոխիր ուղին քո firebase.ts ֆայլի համար
+import { auth } from "../firebase";
 
-const Register: React.FC = () => {
+interface RegisterProps {
+  onLogin: (email: string) => void;
+}
+
+const Register: React.FC<RegisterProps> = ({ onLogin }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
 
   const handleRegister = async () => {
-  if (!email.includes("@")) {
-    setError("Խնդրում ենք մուտքագրել ճիշտ Email");
-  } else if (password.length < 6) {
-    setError("Գաղտնաբառը շատ կարճ է");
-  } else {
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      console.log("User registered:", userCredential.user);  // <-- սա տեսնելու համար
-      setError("");
-      navigate("/");
-    } catch (err: any) {
-      console.log("Register error:", err);
-      setError("Գրանցման սխալ: " + err.message);
+    if (!email.includes("@")) {
+      setError("Խնդրում ենք մուտքագրել ճիշտ Email");
+    } else if (password.length < 6) {
+      setError("Գաղտնաբառը շատ կարճ է");
+    } else {
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        console.log("User registered:", userCredential.user);
+        setError("");
+
+        onLogin(userCredential.user.email || "");
+
+        navigate("/");
+      } catch (err: any) {
+        console.log("Register error:", err);
+        setError("Գրանցման սխալ: " + err.message);
+      }
     }
-  }
-};
+  };
 
   return (
     <div>

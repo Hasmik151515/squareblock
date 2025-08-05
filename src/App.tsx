@@ -35,25 +35,38 @@ export default function App(): ReactElement {
     <>
       <Header />
       <Routes>
-        <Route
-          path="/"
-          element={
-            isLoggedIn ? <Home onLogout={handleLogout} userEmail={userEmail} /> : <Navigate to="/login" replace />
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            isLoggedIn ? <Navigate to="/" replace /> : <Login onLogin={handleLogin} />
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            isLoggedIn ? <Navigate to="/" replace /> : <Register />
-          }
-        />
-      </Routes>
+  <Route
+    path="/"
+    element={
+      isLoggedIn ? (
+        <Home onLogout={handleLogout} userEmail={userEmail} />
+      ) : (
+        <Navigate to="/login" replace />
+      )
+    }
+  />
+  <Route
+    path="/login"
+    element={
+      isLoggedIn ? (
+        <Navigate to="/" replace />
+      ) : (
+        <Login onLogin={handleLogin} />
+      )
+    }
+  />
+  <Route
+    path="/register"
+    element={
+      isLoggedIn ? (
+        <Navigate to="/" replace />
+      ) : (
+        <Register onLogin={handleLogin} />
+      )
+    }
+  />
+</Routes>
+
     </>
   );
 }

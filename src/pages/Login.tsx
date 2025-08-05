@@ -57,19 +57,28 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        className="relative top-[120px] left-[470px] p-5 border rounded-[10px] h-[43px] w-[480px]"
+        className="absolute top-[280px] left-[470px] p-5 border rounded-[10px] h-[43px] w-[480px]"
       />
       {error && (
         <p className="relative top-[140px] left-[480px] text-red-500">{error}</p>
       )}
+      <p className=" absolute left-[475px] top-[340px]">Forgot password</p>
       <button
         onClick={handleLogin}
-        className="w-[480px] h-[55px] rounded-[20px] bg-orange-400 relative top-[180px] left-[470px] text-white"
+        className="w-[470px] h-[55px] rounded-[30px] bg-orange-400 relative top-[270px] left-[0px] text-white"
       >
         Sign in
       </button>
-      <p className="relative left-[700px] top-[200px] text-gray-400">Or</p>
-      <p className="relative top-[250px] left-[620px]">
+      <p className="relative left-[700px] top-[280px] text-gray-400">Or</p>
+
+       <button
+
+        className="w-[470px] h-[55px] rounded-[30px] border border-orange-400 relative top-[290px] left-[480px]  flex justify-center items-center"
+      >
+        <img className="h-[30px] w-30px]" src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="" />
+        Sign in with google
+      </button>
+      <p className="relative top-[330px] left-[620px]">
         Not registered yet{" "}
         <Link to="/register" className="absolute left-[132px] text-orange-400">
           Register
