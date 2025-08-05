@@ -7,41 +7,53 @@ import Register from "./pages/Register";
 import Header from "./components/header";
 import UserList from "./components/UserList";
 import MessageList from "./components/MessageList";
-
 import './index.css';
 import './App.css';
+
+
 export default function App(): ReactElement {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userEmail, setUserEmail] = useState<string | null>(null);
   const [userUid, setUserUid] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true); // <-- նոր լոադինգ state
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const email = localStorage.getItem("userEmail");
-    if (email && auth.currentUser) {
-      setUserEmail(email);
-      setUserUid(auth.currentUser.uid);
+ useEffect(() => {
+  const unsubscribe = auth.onAuthStateChanged(user => {
+    if (user) {
+      setUserUid(user.uid);
+      setUserEmail(user.email);
       setIsLoggedIn(true);
+      localStorage.setItem("userEmail", user.email || "");
+    } else {
+      setUserUid(null);
+      setUserEmail(null);
+      setIsLoggedIn(false);
+      localStorage.removeItem("userEmail");
+      navigate("/login");
     }
-  }, []);
+  });
+
+    return () => unsubscribe();
+  }, [navigate]);
 
   const handleLogin = (email: string): void => {
     localStorage.setItem("userEmail", email);
     setUserEmail(email);
-    if (auth.currentUser) {
-      setUserUid(auth.currentUser.uid);
-    }
     setIsLoggedIn(true);
   };
 
   const handleLogout = (): void => {
+    auth.signOut(); 
     localStorage.removeItem("userEmail");
     setUserEmail(null);
     setUserUid(null);
     setIsLoggedIn(false);
     navigate("/login");
   };
+
+
 
   return (
     <>

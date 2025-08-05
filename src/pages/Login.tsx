@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 
 interface LoginProps {
-  onLogin: (userEmail: string) => void; // Ստանում ենք email կամ username
+  onLogin: (userEmail: string) => void;
 }
 
 const Login: React.FC<LoginProps> = ({ onLogin }) => {
@@ -22,13 +22,17 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
       setError("Գաղտնաբառը շատ կարճ է");
       return;
     }
+
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Փակել սխալը, պահել տվյալները
       setError("");
-      onLogin(userCredential.user.email || "");
+      localStorage.setItem("userEmail", email);
+      onLogin(email);
       navigate("/");
     } catch (err: any) {
-      // Error handling
       const errorCode = err.code;
       if (errorCode === "auth/user-not-found") {
         setError("Օգտատերը չի գտնվել։");
@@ -45,6 +49,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
   return (
     <div>
       <p className="relative left-[700px] top-[50px] font-bold">Sign in</p>
+
       <input
         type="text"
         placeholder="Email or phone number"
@@ -52,6 +57,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
         onChange={(e) => setEmail(e.target.value)}
         className="relative top-[100px] left-[470px] p-5 border rounded-[10px] h-[43px] w-[480px]"
       />
+
       <input
         type="password"
         placeholder="Password"
@@ -59,25 +65,33 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
         onChange={(e) => setPassword(e.target.value)}
         className="absolute top-[280px] left-[470px] p-5 border rounded-[10px] h-[43px] w-[480px]"
       />
+
       {error && (
         <p className="relative top-[140px] left-[480px] text-red-500">{error}</p>
       )}
+
       <p className=" absolute left-[475px] top-[340px]">Forgot password</p>
+
       <button
         onClick={handleLogin}
         className="w-[470px] h-[55px] rounded-[30px] bg-orange-400 relative top-[270px] left-[0px] text-white"
       >
         Sign in
       </button>
+
       <p className="relative left-[700px] top-[280px] text-gray-400">Or</p>
 
-       <button
-
-        className="w-[470px] h-[55px] rounded-[30px] border border-orange-400 relative top-[290px] left-[480px]  flex justify-center items-center"
+      <button
+        className="w-[470px] h-[55px] rounded-[30px] border border-orange-400 relative top-[290px] left-[480px] flex justify-center items-center gap-3"
       >
-        <img className="h-[30px] w-30px]" src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="" />
-        Sign in with google
+        <img
+          className="h-[30px] w-[30px]"
+          src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
+          alt="Google Logo"
+        />
+        Sign in with Google
       </button>
+
       <p className="relative top-[330px] left-[620px]">
         Not registered yet{" "}
         <Link to="/register" className="absolute left-[132px] text-orange-400">
