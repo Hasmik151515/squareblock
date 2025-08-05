@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 
 interface LoginProps {
-  onLogin: (userEmail: string) => void;
+  onLogin: (email: string, uid: string) => void;
 }
 
 const Login: React.FC<LoginProps> = ({ onLogin }) => {
@@ -27,10 +27,9 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Փակել սխալը, պահել տվյալները
       setError("");
       localStorage.setItem("userEmail", email);
-      onLogin(email);
+      onLogin(email, user.uid);
       navigate("/");
     } catch (err: any) {
       const errorCode = err.code;
@@ -70,7 +69,9 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
         <p className="relative top-[140px] left-[480px] text-red-500">{error}</p>
       )}
 
-      <p className=" absolute left-[475px] top-[340px]">Forgot password</p>
+      <p className="absolute left-[475px] top-[340px] cursor-pointer text-blue-600 underline">
+        Forgot password
+      </p>
 
       <button
         onClick={handleLogin}
