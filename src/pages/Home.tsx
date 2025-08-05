@@ -12,13 +12,14 @@ import LastPart from "../components/LastPart";
 
 interface HomeProps {
   onLogout: () => void;
+  userEmail: string | null;
 }
 
-export default function Home({ onLogout }: HomeProps) {
+export default function Home({ onLogout  }: HomeProps) {
   return (
     <div>
-      <h1>Welcome Home!</h1>
-      <button onClick={onLogout}>Logout</button>
+      {/* <h1>Welcome Home, {userEmail}!</h1> */}
+      <button onClick={onLogout} className="relative top-[2850px] ">Logout</button>
       
            <ParentDiv />
       <MapCal />

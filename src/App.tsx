@@ -7,39 +7,38 @@ import Header from "./components/header";
 import './index.css';
 import './App.css';
 
-
 export default function App(): ReactElement {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
 
   useEffect(() => {
-    const userEmail = localStorage.getItem("userEmail");
-    if (userEmail) {
+    const email = localStorage.getItem("userEmail");
+    if (email) {
+      setUserEmail(email);
       setIsLoggedIn(true);
     }
   }, []);
 
   const handleLogin = (email: string): void => {
     localStorage.setItem("userEmail", email);
+    setUserEmail(email);
     setIsLoggedIn(true);
   };
 
   const handleLogout = (): void => {
     localStorage.removeItem("userEmail");
+    setUserEmail(null);
     setIsLoggedIn(false);
   };
 
   return (
-    
     <>
-      {/* Այստեղ ենք դնում Header-ը, որ ամեն էջի վրա լինի */}
       <Header />
-
-      {/* Սա պահում ենք Routes-ի համար */}
       <Routes>
         <Route
           path="/"
           element={
-            isLoggedIn ? <Home onLogout={handleLogout} /> : <Navigate to="/login" replace />
+            isLoggedIn ? <Home onLogout={handleLogout} userEmail={userEmail} /> : <Navigate to="/login" replace />
           }
         />
         <Route
@@ -52,11 +51,9 @@ export default function App(): ReactElement {
           path="/register"
           element={
             isLoggedIn ? <Navigate to="/" replace /> : <Register />
-
           }
         />
       </Routes>
     </>
   );
 }
-
