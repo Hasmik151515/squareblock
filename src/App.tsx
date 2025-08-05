@@ -51,7 +51,8 @@ export default function App(): ReactElement {
         <Route
           path="/register"
           element={
-            isLoggedIn ? <Navigate to="/" replace /> : <Register onRegister={handleLogin} />
+            isLoggedIn ? <Navigate to="/" replace /> : <Register />
+
           }
         />
       </Routes>

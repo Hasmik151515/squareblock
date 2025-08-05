@@ -7,7 +7,7 @@ interface MenuItem {
   className?: string;
 }
 
-function Header(): React.ReactElement {
+const Header: React.FC = () => {
   const [headerMenu, setHeaderMenu] = useState<MenuItem[]>([]);
   const navigate = useNavigate();
 

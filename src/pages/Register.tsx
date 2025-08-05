@@ -1,38 +1,35 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase"; 
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase"; // ✅ փոխիր ուղին քո firebase.ts ֆայլի համար
 
-interface LoginProps {
-  onLogin: (email: string) => void;
-}
-
-const Login: React.FC<LoginProps> = ({ onLogin }) => {
+const Register: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
 
-  const handleLogin = async () => {
-    if (!email.includes("@")) {
-      setError("Խնդրում ենք մուտքագրել ճիշտ Email");
-    } else if (password.length < 6) {
-      setError("Գաղտնաբառը շատ կարճ է");
-    } else {
-      try {
-        await signInWithEmailAndPassword(auth, email, password);
-        setError("");
-        onLogin(email);
-        navigate("/");
-      } catch (err: any) {
-        setError("Մուտքը ձախողվեց։ Խնդրում ենք ստուգել email-ը և գաղտնաբառը։");
-      }
+  const handleRegister = async () => {
+  if (!email.includes("@")) {
+    setError("Խնդրում ենք մուտքագրել ճիշտ Email");
+  } else if (password.length < 6) {
+    setError("Գաղտնաբառը շատ կարճ է");
+  } else {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      console.log("User registered:", userCredential.user);  // <-- սա տեսնելու համար
+      setError("");
+      navigate("/");
+    } catch (err: any) {
+      console.log("Register error:", err);
+      setError("Գրանցման սխալ: " + err.message);
     }
-  };
+  }
+};
 
   return (
     <div>
-      <p className="relative left-[700px] top-[50px] font-bold">Sign in</p>
+      <p className="relative left-[700px] top-[50px] font-bold">Register</p>
 
       <div>
         <input
@@ -55,39 +52,26 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
       </div>
 
       {error && (
-        <p className="relative top-[140px] left-[480px] text-red-500">{error}</p>
+        <p className="relative top-[140px] left-[480px] text-red-500">
+          {error}
+        </p>
       )}
 
-      <p className="relative top-[150px] left-[480px] text-[13px] font-medium">
-        Forgot password
-      </p>
-
       <button
-        onClick={handleLogin}
+        onClick={handleRegister}
         className="w-[480px] h-[55px] rounded-[20px] bg-orange-400 relative top-[180px] left-[470px] text-white"
       >
-        Sign in
-      </button>
-
-      <p className="relative left-[700px] top-[200px] text-gray-400">Or</p>
-
-      <button className="flex gap-[5px] justify-center items-center w-[480px] h-[55px] rounded-[20px] border border-orange-400 relative top-[220px] left-[470px] text-black">
-        <img
-          className="h-[20px] w-[20px]"
-          src="https://amaranoc.am/_next/image?url=%2Fimages%2Fgoogle-logo.png&w=32&q=75"
-          alt="Google logo"
-        />
-        Sign in with google
+        Register
       </button>
 
       <p className="relative top-[250px] left-[620px]">
-        Not registered yet{" "}
-        <Link to="/register" className="absolute left-[132px] text-orange-400">
-          Register
+        Already registered?{" "}
+        <Link to="/login" className="absolute left-[180px] text-orange-400">
+          Login
         </Link>
       </p>
     </div>
   );
 };
 
-export default Login;
+export default Register;

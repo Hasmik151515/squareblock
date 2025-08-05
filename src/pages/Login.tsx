@@ -13,22 +13,33 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
 
-  const handleLogin = async () => {
-    if (!email.includes("@")) {
-      setError("Խնդրում ենք մուտքագրել ճիշտ Email");
-    } else if (password.length < 6) {
-      setError("Գաղտնաբառը շատ կարճ է");
-    } else {
-      try {
-        await signInWithEmailAndPassword(auth, email, password);
-        setError("");
-        onLogin(email);
-        navigate("/");
-      } catch (err: any) {
-        setError("Մուտքը ձախողվեց։ Խնդրում ենք ստուգել email-ը և գաղտնաբառը։");
+ const handleLogin = async () => {
+  if (!email.includes("@")) {
+    setError("Խնդրում ենք մուտքագրել ճիշտ Email");
+  } else if (password.length < 6) {
+    setError("Գաղտնաբառը շատ կարճ է");
+  } else {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      setError("");
+      onLogin(email);
+      navigate("/");
+    } catch (err: any) {
+      const errorCode = err.code;
+
+      if (errorCode === "auth/user-not-found") {
+        setError("Օգտատերը չի գտնվել։");
+      } else if (errorCode === "auth/wrong-password") {
+        setError("Գաղտնաբառը սխալ է։");
+      } else if (errorCode === "auth/invalid-email") {
+        setError("Էլ․հասցեն սխալ է։");
+      } else {
+        setError("Մուտքը ձախողվեց։ Փորձեք կրկին։");
       }
     }
-  };
+  }
+};
+
 
   return (
     <div>
