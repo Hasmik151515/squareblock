@@ -10,7 +10,6 @@ import BestOffer from "../components/BestOffer";
 import CommonOffers from "../components/CommonOffers";
 import Pagination from "../components/Pagination";
 import Footer from "../components/footer";
-import LastPart from "../components/LastPart";
 import UserList from "../components/UserList";
 
 interface HomeProps {
@@ -61,7 +60,6 @@ export default function Home({ onLogout, userEmail }: HomeProps) {
       <CommonOffers />
       <Pagination />
       <Footer />
-      <LastPart />
 
       {currentUserUid && (
         <div className="p-5 border border-gray-300 mt-10">

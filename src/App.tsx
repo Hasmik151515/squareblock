@@ -1,4 +1,3 @@
-// App.tsx
 import React, { useState, useEffect, ReactElement } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { auth } from "./firebase";
@@ -8,6 +7,9 @@ import Register from "./pages/Register";
 import Header from "./components/header";
 import UserList from "./components/UserList";
 import MessageList from "./components/MessageList";
+import GroupChat from "./components/GroupChat";
+import Group from "./components/Group";
+
 
 import './index.css';
 import './App.css';
@@ -21,18 +23,18 @@ export default function App(): ReactElement {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
-        if (user) {
-      setUserUid(user.uid);
-      setUserEmail(user.email);
-      setIsLoggedIn(true);
-      localStorage.setItem("userEmail", user.email || "");
-    } else {
-      setUserUid(null);
-      setUserEmail(null);
-      setIsLoggedIn(false);
-      localStorage.removeItem("userEmail");
-
-    }
+      if (user) {
+        setUserUid(user.uid);
+        setUserEmail(user.email);
+        setIsLoggedIn(true);
+        localStorage.setItem("userEmail", user.email || "");
+      } else {
+        setUserUid(null);
+        setUserEmail(null);
+        setIsLoggedIn(false);
+        localStorage.removeItem("userEmail");
+        navigate("/login");
+      }
     });
 
     return () => unsubscribe();
@@ -105,17 +107,29 @@ export default function App(): ReactElement {
             )
           }
         />
+       <Route
+  path="/chat/:chatId"
+  element={
+    isLoggedIn && userEmail ? (
+      <MessageList currentUserEmail={userEmail} />
+    ) : (
+      <Navigate to="/login" replace />
+    )
+  }
+/>
+        
         <Route
-          path="/chat/:chatId"
+          path="/group"
           element={
-            isLoggedIn ? (
-              <MessageList />
+            isLoggedIn && userEmail ? (
+              <GroupChat currentUserEmail={userEmail} />
             ) : (
               <Navigate to="/login" replace />
             )
           }
         />
       </Routes>
+      <Group/>
     </>
   );
 }

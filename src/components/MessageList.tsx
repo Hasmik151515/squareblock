@@ -1,68 +1,95 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { collection, query, orderBy, onSnapshot, addDoc, serverTimestamp } from "firebase/firestore";
-import { db, auth } from "../firebase";
+import React, { useState, useEffect } from "react";
+import {
+  collection,
+  addDoc,
+  serverTimestamp,
+  query,
+  orderBy,
+  onSnapshot,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
+import { db } from "../firebase";
 
-interface Message {
+type Props = {
+  currentUserEmail: string;
+};
+
+type Message = {
   id: string;
-  senderId: string;
   text: string;
-  timestamp: any;
-}
+  sender: string;
+  timestamp?: any;
+};
 
-export default function MessageList() {
-  const { chatId } = useParams();
+export default function GroupChat({ currentUserEmail }: Props) {
+  const [message, setMessage] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
-  const [input, setInput] = useState("");
-  const currentUser = auth.currentUser;
 
   useEffect(() => {
-    if (!chatId) return;
-
-    const messagesRef = collection(db, "chats", chatId, "messages");
-    const q = query(messagesRef, orderBy("timestamp"));
+    const q = query(collection(db, "groupChat"), orderBy("timestamp", "asc"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      const msgs: Message[] = snapshot.docs.map(doc => ({
+      const msgs = snapshot.docs.map((doc) => ({
         id: doc.id,
-        ...(doc.data() as Omit<Message, "id">),
-      }));
+        ...doc.data(),
+      })) as Message[];
       setMessages(msgs);
     });
 
     return () => unsubscribe();
-  }, [chatId]);
+  }, []);
 
   const handleSendMessage = async () => {
-    if (!input.trim() || !chatId || !currentUser) return;
+    if (message.trim() === "") return;
 
-    await addDoc(collection(db, "chats", chatId, "messages"), {
-      senderId: currentUser.uid,
-      text: input.trim(),
-      timestamp: serverTimestamp()
+    await addDoc(collection(db, "groupChat"), {
+      text: message,
+      sender: currentUserEmail,
+      timestamp: serverTimestamp(),
     });
 
-    setInput("");
+    setMessage("");
+  };
+
+  const handleDeleteMessage = async (id: string) => {
+    await deleteDoc(doc(db, "groupChat", id));
   };
 
   return (
-    <div>
-      <h2>Chat: {chatId}</h2>
-      <div style={{ maxHeight: "400px", overflowY: "auto", border: "1px solid #ccc", padding: "10px" }}>
-        {messages.map(msg => (
-          <p key={msg.id} style={{ fontWeight: msg.senderId === currentUser?.uid ? "bold" : "normal" }}>
-            {msg.text}
-          </p>
+    <div className="p-4 max-w-md mx-auto">
+      <div className="border rounded p-2 h-[400px] overflow-y-scroll mb-4">
+        {messages.map((msg) => (
+          <div key={msg.id} className="mb-2 flex justify-between items-center">
+            <div>
+              <strong>{msg.sender}: </strong>
+              <span>{msg.text}</span>
+            </div>
+            {msg.sender === currentUserEmail && (
+              <button
+                className="text-red-500 ml-2 text-sm"
+                onClick={() => handleDeleteMessage(msg.id)}
+              >
+                Delete
+              </button>
+            )}
+          </div>
         ))}
       </div>
-      <input 
-        value={input} 
-        onChange={e => setInput(e.target.value)} 
-        placeholder="Write a message..." 
-        className="absolute bg-black"
-      />
-      <button onClick={handleSendMessage} style={{ width: "18%" }}>
-        Send
-      </button>
+
+      <div className="flex">
+        <input
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Write a message..."
+          className="flex-grow p-2 border rounded"
+        />
+        <button
+          onClick={handleSendMessage}
+          className="ml-2 px-4 bg-blue-500 text-white rounded"
+        >
+          Send
+        </button>
+      </div>
     </div>
   );
 }

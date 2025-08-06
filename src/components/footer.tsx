@@ -5,6 +5,8 @@ const Footer: React.FC = () => {
   return (
     <div className="relative top-[1050px] h-[600px] w-[1550px]">
       <img className="nkar2" src={nkar} alt="Footer" />
+
+       
     </div>
   );
 };
