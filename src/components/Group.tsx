@@ -6,7 +6,7 @@ const Group: React.FC = () => {
      
 <div>
       
-     <Link to="/group" className="text-orange-400 underline">
+     <Link to="/group" className="text-orange-400 underline relative top-[400px]">
         Գնալ Group Chat
       </Link>
    </div>

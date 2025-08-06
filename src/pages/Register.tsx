@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface RegisterProps {
   onLogin: (email: string, uid: string) => void;
@@ -83,9 +84,9 @@ const Register: React.FC<RegisterProps> = ({ onLogin }) => {
       </button>
       <p className="relative top-[430px] left-[620px]">
         Have an account?{" "}
-        <a href="/login" className="absolute left-[132px] text-orange-400">
-          Sign In
-        </a>
+        <Link to="/login" className="absolute left-[132px] text-orange-400">
+  Sign In
+</Link>
       </p>
     </div>
   );

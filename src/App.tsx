@@ -17,26 +17,26 @@ export default function App(): ReactElement {
   const [userEmail, setUserEmail] = useState<string | null>(null);
   const [userUid, setUserUid] = useState<string | null>(null);
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
+useEffect(() => {
+  const unsubscribe = auth.onAuthStateChanged(user => {
+    if (user) {
+      setUserUid(user.uid);
+      setUserEmail(user.email);
+      setIsLoggedIn(true);
+      localStorage.setItem("userEmail", user.email || "");
+    } else {
+      setUserUid(null);
+      setUserEmail(null);
+      setIsLoggedIn(false);
+      localStorage.removeItem("userEmail");
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      if (user) {
-        setUserUid(user.uid);
-        setUserEmail(user.email);
-        setIsLoggedIn(true);
-        localStorage.setItem("userEmail", user.email || "");
-      } else {
-        setUserUid(null);
-        setUserEmail(null);
-        setIsLoggedIn(false);
-        localStorage.removeItem("userEmail");
-        navigate("/login");
-      }
-    });
+    }
+  });
 
-    return () => unsubscribe();
-  }, [navigate]);
+  return () => unsubscribe();
+}, []);
+
 
   const handleLogin = (email: string, uid?: string): void => {
     localStorage.setItem("userEmail", email);
