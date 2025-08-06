@@ -1,8 +1,7 @@
 import React from "react";
-import verj from "../assets/verj.png";
 import { Link } from "react-router-dom";
 
-const LastPart: React.FC = () => {
+const Group: React.FC = () => {
   return (
      
 <div>
@@ -14,4 +13,4 @@ const LastPart: React.FC = () => {
   );
 };
 
-export default LastPart;
+export default Group;

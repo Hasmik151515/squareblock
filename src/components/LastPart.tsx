@@ -1,6 +1,5 @@
 import React from "react";
 import verj from "../assets/verj.png";
-import { Link } from "react-router-dom";
 
 const LastPart: React.FC = () => {
   return (
@@ -19,9 +18,7 @@ const LastPart: React.FC = () => {
 
       
     </div>
-     <Link to="/group" className="text-orange-400 underline">
-        Գնալ Group Chat
-      </Link>
+    
    </div>
   );
 };

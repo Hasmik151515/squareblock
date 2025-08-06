@@ -10,7 +10,6 @@ import BestOffer from "../components/BestOffer";
 import CommonOffers from "../components/CommonOffers";
 import Pagination from "../components/Pagination";
 import Footer from "../components/footer";
-import UserList from "../components/UserList";
 
 interface HomeProps {
   onLogout: () => void;
@@ -61,17 +60,7 @@ export default function Home({ onLogout, userEmail }: HomeProps) {
       <Pagination />
       <Footer />
 
-      {currentUserUid && (
-        <div className="p-5 border border-gray-300 mt-10">
-          <h2 className="text-lg font-semibold mb-4">
-            Ընտրիր ում հետ ուզում ես խոսել
-          </h2>
-          <UserList
-            currentUserUid={currentUserUid}
-            onSelectUser={handleSelectUser}
-          />
-        </div>
-      )}
+     
     </div>
   );
 }

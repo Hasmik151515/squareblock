@@ -5,8 +5,6 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Header from "./components/header";
-import UserList from "./components/UserList";
-import MessageList from "./components/MessageList";
 import GroupChat from "./components/GroupChat";
 import Group from "./components/Group";
 
@@ -92,42 +90,20 @@ export default function App(): ReactElement {
             )
           }
         />
-        <Route
-          path="/users"
-          element={
-            isLoggedIn && userUid ? (
-              <UserList
-                currentUserUid={userUid}
-                onSelectUser={(user) => {
-                  navigate(`/chat/${user.uid}`);
-                }}
-              />
-            ) : (
-              <Navigate to="/login" replace />
-            )
-          }
-        />
+    
+
+
        <Route
-  path="/chat/:chatId"
-  element={
-    isLoggedIn && userEmail ? (
-      <MessageList currentUserEmail={userEmail} />
-    ) : (
-      <Navigate to="/login" replace />
-    )
-  }
-/>
-        
-        <Route
-          path="/group"
-          element={
-            isLoggedIn && userEmail ? (
-              <GroupChat currentUserEmail={userEmail} />
-            ) : (
-              <Navigate to="/login" replace />
-            )
-          }
-        />
+    path="/group"
+    element={
+      isLoggedIn && userEmail ? (
+        <GroupChat currentUserEmail={userEmail} />
+      ) : (
+        <Navigate to="/login" replace />
+      )
+    }
+  />
+
       </Routes>
       <Group/>
     </>
