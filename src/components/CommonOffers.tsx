@@ -1,19 +1,16 @@
 import React from "react";
 import { commonOffers } from "../data/offer";
 import { icons } from "../data/icons";
-import CommonOffersItem from "../components/CommonOffersItem";
+import BestOfferItem from "./BestOfferItem";
 
-const CommonOffers: React.FC = () => (
-  <>
-    <p className="absolute top-[1560px] left-[470px] font-semibold text-[17px]">
-      Common offers
-    </p>
-    <div className="absolute top-[1620px] left-[470px] w-[1020px] grid gap-[15px] grid-cols-[330px_330px_330px] grid-rows-[370px_370px_370px]">
-      {commonOffers.map((offer) => (
-        <CommonOffersItem key={offer.id} offer={offer} icons={icons} />
-      ))}
-    </div>
-  </>
-);
+const CommonOffers: React.FC = () => {
+    return (
+        <div className="grid grid-cols-3 gap-4 mt-10">
+            {commonOffers.map((offer, index) => (
+                <BestOfferItem key={index} offer={offer} icons={icons} />
+            ))}
+        </div>
+    );
+};
 
 export default CommonOffers;

@@ -1,5 +1,5 @@
 import React from "react";
-import { useFavoriteStore } from "../store/favoritesStore"; // import
+import { useFavoriteStore } from "../store/favoritesStore";
 
 interface Offer {
   id: string | number;
@@ -26,7 +26,8 @@ interface BestOfferItemProps {
 
 const BestOfferItem: React.FC<BestOfferItemProps> = ({ offer, icons }) => {
   const { favorites, toggleFavorite } = useFavoriteStore();
-  const isFavorite = favorites.includes(offer.id);
+  const offerIdStr = offer.id.toString(); // միշտ string
+  const isFavorite = favorites.includes(offerIdStr);
 
   return (
     <div className="h-[370px] w-[330px] rounded-[10px] shadow-[4px_4px_10px_rgba(0,0,0,0.25)] relative">
@@ -36,11 +37,11 @@ const BestOfferItem: React.FC<BestOfferItemProps> = ({ offer, icons }) => {
         alt={offer.location}
       />
 
-      {/* Favorites heart */}
+      {/* Favorites Heart */}
       <i
         className={`fa-heart absolute top-2 right-2 cursor-pointer text-2xl ${isFavorite ? "fa-solid text-red-500" : "fa-regular text-black"
           }`}
-        onClick={() => toggleFavorite(offer.id)}
+        onClick={() => toggleFavorite(offerIdStr)}
       ></i>
 
       <img src={icons.location} className="relative top-[10px] left-[10px]" alt="location" />

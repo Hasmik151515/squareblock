@@ -24,9 +24,16 @@ interface User {
 
 export default function Home({ onLogout, userEmail }: HomeProps) {
   const [currentUserUid, setCurrentUserUid] = useState("");
+  const [favorites, setFavorites] = useState<string[]>([]); // ✅ favorites state
   const navigate = useNavigate();
 
-  // ✅ Քո useEffect-ը ավելացրե՛ցի
+  // Favorites toggle ֆունկցիա
+  const onToggleFavorite = (id: string) => {
+    setFavorites(prev =>
+      prev.includes(id) ? prev.filter(favId => favId !== id) : [...prev, id]
+    );
+  };
+
   useEffect(() => {
     async function fetchUid() {
       const usersSnapshot = await getDocs(collection(db, "users"));
@@ -56,12 +63,16 @@ export default function Home({ onLogout, userEmail }: HomeProps) {
       <ParentDiv />
       <MapCal />
       <HouseTypes />
-      <BestOffer />
-      <CommonOffers />
+      <BestOffer
+
+      />
+      <CommonOffers
+
+      />
+
       <Pagination />
       <Footer />
       <LastPart />
-
     </div>
   );
 }
