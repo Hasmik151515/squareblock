@@ -6,10 +6,11 @@ import { db } from "../firebase";
 import ParentDiv from "../components/parentDiv";
 import MapCal from "../components/mapCal";
 import HouseTypes from "../components/HouseTypes";
-import BestOffer from "../components/BestOffer"; 
+import BestOffer from "../components/BestOffer";
 import CommonOffers from "../components/CommonOffers";
 import Pagination from "../components/Pagination";
 import Footer from "../components/footer";
+import LastPart from "../components/LastPart";
 
 interface HomeProps {
   onLogout: () => void;
@@ -59,8 +60,8 @@ export default function Home({ onLogout, userEmail }: HomeProps) {
       <CommonOffers />
       <Pagination />
       <Footer />
+      <LastPart />
 
-     
     </div>
   );
 }

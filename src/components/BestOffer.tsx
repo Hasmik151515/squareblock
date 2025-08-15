@@ -1,7 +1,7 @@
 import React from "react";
 import { bestOffers } from "../data/offer";
 import { icons } from "../data/icons";
-import BestOfferItem from "./BestOfferItem";
+import BestOfferItem from "../components/BestOfferItem";
 
 const BestOffer: React.FC = () => (
   <>

@@ -7,7 +7,7 @@ import Register from "./pages/Register";
 import Header from "./components/header";
 import GroupChat from "./components/GroupChat";
 import Group from "./components/Group";
-
+import Favorites from "./pages/Favorites";
 
 import './index.css';
 import './App.css';
@@ -17,25 +17,25 @@ export default function App(): ReactElement {
   const [userEmail, setUserEmail] = useState<string | null>(null);
   const [userUid, setUserUid] = useState<string | null>(null);
 
-  const navigate = useNavigate(); 
-useEffect(() => {
-  const unsubscribe = auth.onAuthStateChanged(user => {
-    if (user) {
-      setUserUid(user.uid);
-      setUserEmail(user.email);
-      setIsLoggedIn(true);
-      localStorage.setItem("userEmail", user.email || "");
-    } else {
-      setUserUid(null);
-      setUserEmail(null);
-      setIsLoggedIn(false);
-      localStorage.removeItem("userEmail");
+  const navigate = useNavigate();
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (user) {
+        setUserUid(user.uid);
+        setUserEmail(user.email);
+        setIsLoggedIn(true);
+        localStorage.setItem("userEmail", user.email || "");
+      } else {
+        setUserUid(null);
+        setUserEmail(null);
+        setIsLoggedIn(false);
+        localStorage.removeItem("userEmail");
 
-    }
-  });
+      }
+    });
 
-  return () => unsubscribe();
-}, []);
+    return () => unsubscribe();
+  }, []);
 
 
   const handleLogin = (email: string, uid?: string): void => {
@@ -90,22 +90,26 @@ useEffect(() => {
             )
           }
         />
-    
 
 
-       <Route
-    path="/group"
-    element={
-      isLoggedIn && userEmail ? (
-        <GroupChat currentUserEmail={userEmail} />
-      ) : (
-        <Navigate to="/login" replace />
-      )
-    }
-  />
+
+        <Route
+          path="/group"
+          element={
+            isLoggedIn && userEmail ? (
+              <GroupChat currentUserEmail={userEmail} />
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
+        />
+        <Route
+          path="/favorites"
+          element={<Favorites />}
+        />
 
       </Routes>
-      <Group/>
+      <Group />
     </>
   );
 }
