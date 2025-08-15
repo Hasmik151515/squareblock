@@ -38,11 +38,12 @@ const CommonOffersItem: React.FC<CommonOffersItemProps> = ({ offer, icons }) => 
                 }`}
         >
             {/* Favorites */}
-            <i
+
+            < i
                 className={`fa-heart absolute top-2 right-2 cursor-pointer text-2xl ${isFavorite ? "fa-solid text-red-500" : "fa-regular text-black"
                     }`}
                 onClick={() => toggleFavorite(offerIdStr)}
-            ></i>
+            ></i >
 
             <img
                 src={offer.image}
@@ -68,16 +69,18 @@ const CommonOffersItem: React.FC<CommonOffersItemProps> = ({ offer, icons }) => 
                 {offer.people}
             </span>
 
-            {offer.hasGazar && (
-                <img
-                    src={icons.gazaraguyn}
-                    className="absolute bottom-10 right-4 w-6 h-6"
-                    alt="gazar"
-                />
-            )}
+            {
+                offer.hasGazar && (
+                    <img
+                        src={icons.gazaraguyn}
+                        className="absolute bottom-10 right-4 w-6 h-6"
+                        alt="gazar"
+                    />
+                )
+            }
             <img src={icons.pitak} className={offer.className} alt="pitak" />
             <span className={offer.class}>{offer.price}</span>
-        </div>
+        </div >
     );
 };
 
