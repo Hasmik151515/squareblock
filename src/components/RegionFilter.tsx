@@ -27,9 +27,14 @@ function RegionFilter() {
       });
   }, []);
 
-  if (loading) return <p>Loading regions...</p>;
   if (error) return <p>Error loading regions: {error}</p>;
-
+  if (loading) {
+    return (
+      < div className=" h-[35px] w-[50px]" >
+        < img className=" h-[35px] w-[50px]" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="" />
+      </div >
+    );
+  }
   return (
     <div className="w-[278px] h-[1750px] rounded-[15px] p-5 border border-gray-200 relative left-[100px]">
       <p className="relative left-2.5 top-2.5 font-medium">Region</p>

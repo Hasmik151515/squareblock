@@ -16,8 +16,8 @@ export const bestOffers = [
         people: 40,
         hasGazar: false,
         price: "80,000 Դ",
-        className: "relative top-[-20px] left-[5px]",
-        class: "relative top-[-45px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
     },
     {
@@ -27,8 +27,8 @@ export const bestOffers = [
         people: 30,
         hasGazar: true,
         price: "100,000 Դ",
-        className: "relative top-[-80px] left-[5px]",
-        class: "relative top-[-105px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
     },
     {
@@ -38,8 +38,8 @@ export const bestOffers = [
         people: 12,
         hasGazar: false,
         price: "140,000 Դ",
-        className: "relative top-[-20px] left-[5px]",
-        class: "relative top-[-45px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
     },
     {
@@ -49,8 +49,8 @@ export const bestOffers = [
         people: 20,
         hasGazar: false,
         price: "150,000 Դ",
-        className: "relative top-[-20px] left-[5px]",
-        class: "relative top-[-45px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
     },
     {
@@ -60,8 +60,8 @@ export const bestOffers = [
         people: 15,
         hasGazar: false,
         price: "80,000 Դ",
-        className: "relative top-[-20px] left-[5px]",
-        class: "relative top-[-45px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
     },
     {
@@ -71,8 +71,8 @@ export const bestOffers = [
         people: 24,
         hasGazar: false,
         price: "150,000 Դ",
-        className: "relative top-[-20px] left-[5px]",
-        class: "relative top-[-45px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
     },
     {
@@ -82,8 +82,8 @@ export const bestOffers = [
         people: 20,
         hasGazar: true,
         price: "90,000 Դ",
-        className: "relative top-[-80px] left-[5px]",
-        class: "relative top-[-105px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
     },
     {
@@ -93,8 +93,8 @@ export const bestOffers = [
         people: 25,
         hasGazar: true,
         price: "160,000 Դ",
-        className: "relative top-[-80px] left-[5px]",
-        class: "relative top-[-105px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
     }
 ];
@@ -118,8 +118,8 @@ export const commonOffers = [
         people: 30,
         hasGazar: false,
         price: "60,000 Դ",
-        className: "relative top-[-20px] left-[5px]",
-        class: "relative top-[-45px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
     },
     {
@@ -129,8 +129,8 @@ export const commonOffers = [
         people: 30,
         hasGazar: true,
         price: "80,000 Դ",
-        className: "relative top-[-80px] left-[5px]",
-        class: "relative top-[-105px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
 
     },
@@ -141,8 +141,8 @@ export const commonOffers = [
         people: 20,
         hasGazar: false,
         price: "60,000 Դ",
-        className: "relative top-[-20px] left-[5px]",
-        class: "relative top-[-45px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
     },
     {
@@ -152,8 +152,8 @@ export const commonOffers = [
         people: 10,
         hasGazar: false,
         price: "70,000 Դ",
-        className: "relative top-[-20px] left-[5px]",
-        class: "relative top-[-45px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
     },
     {
@@ -163,8 +163,8 @@ export const commonOffers = [
         people: 50,
         hasGazar: false,
         price: "50,000 Դ",
-        className: "relative top-[-20px] left-[5px]",
-        class: "relative top-[-45px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
     },
     {
@@ -174,8 +174,8 @@ export const commonOffers = [
         people: 25,
         hasGazar: false,
         price: "35,000 Դ",
-          className: "relative top-[-20px] left-[5px]",
-        class: "relative top-[-45px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
 
     },
@@ -186,8 +186,8 @@ export const commonOffers = [
         people: 6,
         hasGazar: false,
         price: "40,000 Դ",
-          className: "relative top-[-20px] left-[5px]",
-        class: "relative top-[-45px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
     },
     {
@@ -197,8 +197,8 @@ export const commonOffers = [
         people: 7,
         hasGazar: false,
         price: "75,000 Դ",
-          className: "relative top-[-20px] left-[5px]",
-        class: "relative top-[-45px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
+        className: "relative top-[75px] left-[5px]",
+        class: "relative top-[50px] left-[40px] text-[20px] leading-[28px] font-normal tracking-normal text-[#585e6d] font-impact ",
 
     }
 ];

@@ -3,19 +3,40 @@ import { commonOffers } from "../data/offer";
 import { icons } from "../data/icons";
 import BestOfferItem from "./BestOfferItem";
 
-const CommonOffers: React.FC = () => {
+interface CommonOffersProps {
+    columns: number; // 2 կամ 3
+}
+
+const CommonOffers: React.FC<CommonOffersProps> = ({ columns }) => {
+    // Dynamic grid class ըստ columns
+    const gridCols = columns === 2 ? "grid-cols-[500px_500px]" : "grid-cols-[330px_330px_330px]";
+
+    // Dynamic position ըստ columns
+    const leftPos = "left-[470px]";
+    const topPos = columns === 2 ? "top-[1950px]" : "top-[1600px]";
+
     return (
         <div>
-            <p className="absolute left-[470px] top-[1580px] font-semibold text-[17px]">Common Offers</p >
+            <p className={`absolute ${leftPos} ${topPos} font-semibold text-[17px]`}>
+                Common Offers
+            </p>
 
-            <div className="grid grid-cols-3 gap-4 mt-10 w-[1020px] absolute left-[470px] top-[1600px]">
-                {commonOffers.map((offer, index) => (
-                    <BestOfferItem key={index} offer={offer} icons={icons} />
-                ))}
-            </div >
-        </div >
+            <div className={`grid gap-4 mt-10 w-[1020px] absolute ${leftPos} ${topPos} ${gridCols}`}>
+                {commonOffers.map((offer, index) => {
+                    const specialStyle =
+                        columns === 2 && index === 8 // 9-րդը (index 8)
+                            ? "opacity-0 pointer-events-none"
+                            : "";
+
+                    return (
+                        <div key={index} className={specialStyle}>
+                            <BestOfferItem offer={offer} icons={icons} />
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
     );
 };
 
 export default CommonOffers;
-

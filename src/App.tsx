@@ -1,6 +1,7 @@
 import React, { useState, useEffect, ReactElement } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { auth } from "./firebase";
+
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -9,8 +10,8 @@ import GroupChat from "./components/GroupChat";
 import Group from "./components/Group";
 import Favorites from "./pages/Favorites";
 
-import './index.css';
-import './App.css';
+import "./index.css";
+import "./App.css";
 
 export default function App(): ReactElement {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,8 +19,9 @@ export default function App(): ReactElement {
   const [userUid, setUserUid] = useState<string | null>(null);
 
   const navigate = useNavigate();
+
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         setUserUid(user.uid);
         setUserEmail(user.email);
@@ -30,20 +32,16 @@ export default function App(): ReactElement {
         setUserEmail(null);
         setIsLoggedIn(false);
         localStorage.removeItem("userEmail");
-
       }
     });
 
     return () => unsubscribe();
   }, []);
 
-
   const handleLogin = (email: string, uid?: string): void => {
     localStorage.setItem("userEmail", email);
     setUserEmail(email);
-    if (uid) {
-      setUserUid(uid);
-    }
+    if (uid) setUserUid(uid);
     setIsLoggedIn(true);
   };
 
@@ -70,6 +68,7 @@ export default function App(): ReactElement {
             )
           }
         />
+
         <Route
           path="/login"
           element={
@@ -80,6 +79,7 @@ export default function App(): ReactElement {
             )
           }
         />
+
         <Route
           path="/register"
           element={
@@ -91,8 +91,6 @@ export default function App(): ReactElement {
           }
         />
 
-
-
         <Route
           path="/group"
           element={
@@ -103,12 +101,10 @@ export default function App(): ReactElement {
             )
           }
         />
-        <Route
-          path="/favorites"
-          element={<Favorites />}
-        />
 
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
+
       <Group />
     </>
   );

@@ -28,21 +28,29 @@ const Overnight: React.FC = () => {
         setLoading(false);
       });
   }, []);
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-[600px] w-[1500px]">
+        < div className=" h-[350px] w-[500px]" >
+          < img className=" h-[350px] w-[500px]" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="" />
+        </div >
+      </div >
+    );
+  }
 
-  if (loading) return <p>Loading overnight options...</p>;
   if (error) return <p>Error loading overnight options: {error}</p>;
 
   return (
     <div>
-              <p className="text-base font-medium absolute top-[660px] left-[120px]">Overnight availability</p>
+      <p className="text-base font-medium absolute top-[660px] left-[120px]">Overnight availability</p>
 
-    <div className="absolute top-[700px] left-[120px] grid grid-cols-3 gap-2">
-      {overnightOptions.map((option, index) => (
-        <div key={index} className={option.className}>
-          {option.label}
-        </div>
-      ))}
-    </div>
+      <div className="absolute top-[700px] left-[120px] grid grid-cols-3 gap-2">
+        {overnightOptions.map((option, index) => (
+          <div key={index} className={option.className}>
+            {option.label}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

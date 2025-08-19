@@ -26,13 +26,14 @@ interface BestOfferItemProps {
 
 const BestOfferItem: React.FC<BestOfferItemProps> = ({ offer, icons }) => {
   const { favorites, toggleFavorite } = useFavoriteStore();
-  const offerIdStr = offer.id.toString(); // միշտ string
+  const offerIdStr = offer.id.toString();
   const isFavorite = favorites.includes(offerIdStr);
 
   return (
-    <div className="h-[370px] w-[330px] rounded-[10px] shadow-[4px_4px_10px_rgba(0,0,0,0.25)] relative">
+    <div className="rounded-[10px] shadow-[4px_4px_10px_rgba(0,0,0,0.25)] relative w-full h-[370px]">
+      {/* Նկարն այժմ միշտ լցնում է ամբողջ column-ը */}
       <img
-        className="h-[250px] w-[330px] rounded-[10px]"
+        className="h-[250px] w-full rounded-[10px] object-cover"
         src={offer.image}
         alt={offer.location}
       />
@@ -44,15 +45,17 @@ const BestOfferItem: React.FC<BestOfferItemProps> = ({ offer, icons }) => {
         onClick={() => toggleFavorite(offerIdStr)}
       ></i>
 
-      <img src={icons.location} className="relative top-[10px] left-[10px]" alt="location" />
-      <span className="relative top-[-12px] left-[40px] font-medium">{offer.location}</span>
+      {/* Տվյալների տեքստերը */}
+      <img src={icons.location} className="absolute top-[260px] left-2" alt="location" />
+      <span className="absolute top-[260px] left-[40px] font-medium">{offer.location}</span>
 
-      <img src={icons.users} className="relative top-[-40px] left-[160px]" alt="users" />
-      <span className="relative top-[-65px] left-[190px] font-medium">{offer.people}</span>
+      <img src={icons.users} className="absolute top-[260px] left-[160px]" alt="users" />
+      <span className="absolute top-[260px] left-[190px] font-medium">{offer.people}</span>
 
       {offer.hasGazar && (
-        <img src={icons.gazaraguyn} className="relative top-[290px] left-[260px]" alt="gazaraguyn" />
+        <img src={icons.gazaraguyn} className="absolute top-[250px] right-[10px]" alt="gazaraguyn" />
       )}
+
       <img src={icons.pitak} className={offer.className} alt="pitak" />
       <span className={offer.class}>{offer.price}</span>
     </div>

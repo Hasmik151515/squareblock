@@ -6,13 +6,17 @@ interface Page {
   className?: string;
 }
 
-const Pagination: React.FC = () => {
+interface PaginationProps {
+  columns: number; // 2 կամ 3
+}
+
+const Pagination: React.FC<PaginationProps> = ({ columns }) => {
   const [pages, setPages] = useState<Page[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("https://amaranoc4-default-rtdb.firebaseio.com/pages.json")  
+    fetch("https://amaranoc4-default-rtdb.firebaseio.com/pages.json")
       .then(res => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
@@ -30,8 +34,11 @@ const Pagination: React.FC = () => {
   if (loading) return <p>Loading pages...</p>;
   if (error) return <p>Error: {error}</p>;
 
+  // Շատ պարզ տարբերակ՝ top-ի արժեքը ըստ columns
+  const topPosition = columns === 2 ? 3600 : 1050;
+
   return (
-    <div className="absolute left-[800px] top-[2800px] flex items-center gap-3">
+    <div className="flex items-center gap-3" style={{ position: 'absolute', left: '800px', top: `${topPosition}px` }}>
       <div className="flex justify-center items-center h-[40px] w-[40px] rounded-full text-[#585e6d] cursor-pointer">
         <i className="fa-solid fa-arrow-left"></i>
       </div>
