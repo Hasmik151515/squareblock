@@ -9,8 +9,8 @@ import PoolOptions from "./PoolOptions";
 import Advantages from "./Advantages";
 
 const ParentDiv = () => (
-  <div className="arajin">
-    <RegionFilter/>
+  <div>
+    <RegionFilter />
     <PriceFilter />
     <MaxPeople />
     <Overnight />

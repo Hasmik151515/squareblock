@@ -12,24 +12,19 @@ import CommonOffers from "../components/CommonOffers";
 import Pagination from "../components/Pagination";
 import Footer from "../components/footer";
 import LastPart from "../components/LastPart";
-
+import SearchResults from "../components/SearchResults";
+import SearchInput from "../components/SearchInput";
 interface HomeProps {
   onLogout: () => void;
   userEmail: string | null;
-}
-
-interface User {
-  uid: string;
-  email?: string;
 }
 
 const Home: React.FC<HomeProps> = ({ onLogout, userEmail }) => {
   const [currentUserUid, setCurrentUserUid] = useState("");
   const [favorites, setFavorites] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
-
-  // ✅ Columns state (2 կամ 3)
   const [columns, setColumns] = useState<number>(3);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const navigate = useNavigate();
 
@@ -41,6 +36,7 @@ const Home: React.FC<HomeProps> = ({ onLogout, userEmail }) => {
 
   useEffect(() => {
     async function fetchUid() {
+      if (!userEmail) return;
       const usersSnapshot = await getDocs(collection(db, "users"));
       const currentUser = usersSnapshot.docs.find(
         (doc) => doc.data().email === userEmail
@@ -49,44 +45,40 @@ const Home: React.FC<HomeProps> = ({ onLogout, userEmail }) => {
       setLoading(false);
     }
 
-    if (userEmail) fetchUid();
+    fetchUid();
   }, [userEmail]);
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-[600px] w-[1500px]">
-        <div className="h-[350px] w-[500px]">
-          <img
-            className="h-[350px] w-[500px]"
-            src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"
-            alt="loading"
-          />
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div>
-      <button onClick={onLogout} className="relative top-[2850px]">
-        Logout
-      </button>
+      {/* Search input */}
+      <SearchInput searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-      <ParentDiv />
-      <MapCal />
-      <HouseTypes />
+      {/* Show search results or normal content */}
+      {searchTerm ? (
+        <SearchResults searchTerm={searchTerm} />
+      ) : (
+        <>
+          <ParentDiv />
+          <MapCal />
+          <HouseTypes />
+          <Squareblock setColumns={setColumns} />
+          <BestOffer columns={columns} />
+          <CommonOffers columns={columns} />
+          <Pagination columns={columns} />
+          <Footer columns={columns} />
+          <LastPart columns={columns} />
+        </>
+      )}
 
-      {/* Squareblock changes columns */}
-      <Squareblock setColumns={setColumns} />
-
-      {/* BestOffer layout depends on columns */}
-      <BestOffer columns={columns} />
-      <CommonOffers columns={columns} />
-      <Pagination columns={columns} />
-
-      <Footer columns={columns} />
-
-      <LastPart columns={columns} />
+      {/* Logout button */}
+      <div className="p-5">
+        <button
+          onClick={onLogout}
+          className=" absolute"
+        >
+          Logout
+        </button>
+      </div>
     </div>
   );
 };

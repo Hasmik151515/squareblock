@@ -35,7 +35,7 @@ const Pagination: React.FC<PaginationProps> = ({ columns }) => {
   if (error) return <p>Error: {error}</p>;
 
   // Շատ պարզ տարբերակ՝ top-ի արժեքը ըստ columns
-  const topPosition = columns === 2 ? 3600 : 1050;
+  const topPosition = columns === 2 ? 3600 : 2850;
 
   return (
     <div className="flex items-center gap-3" style={{ position: 'absolute', left: '800px', top: `${topPosition}px` }}>
